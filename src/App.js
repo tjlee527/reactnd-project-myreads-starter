@@ -28,6 +28,20 @@ class BooksApp extends React.Component {
       });
   }
 
+  changeBookStatus = (bookID, newStatus) => {
+    BooksAPI.update({bookID}, newStatus)
+      .then(response => {
+        this.setState(prevState => ({
+          books: prevState.books.map(book => {
+            if (book.id === bookID) {
+              book.shelf = newStatus;
+            }
+            return book;
+          })
+        }))
+      })
+  }
+
   render() {
     return (
       <div className="app">
@@ -53,7 +67,9 @@ class BooksApp extends React.Component {
             </div>
           </div>
         ) : (
-          <Bookshelf books={this.state.books}/>
+          <Bookshelf
+            changeBookStatus={this.changeBookStatus}
+            books={this.state.books}/>
         )}
       </div>
     )

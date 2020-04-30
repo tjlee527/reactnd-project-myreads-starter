@@ -13,6 +13,7 @@ class Bookshelf extends React.Component {
                 <Shelf
                   shelfType='Currently Reading'
                   books= {this.props.books.filter(book => book.shelf === 'currentlyReading')}
+                  changeBookStatus={this.props.changeBookStatus}
                 />
                 <div className="bookshelf">
                   <h2 className="bookshelf-title">Want to Read</h2>

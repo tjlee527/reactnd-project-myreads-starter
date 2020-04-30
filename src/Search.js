@@ -14,7 +14,7 @@ class Search extends React.Component {
       .then(results => {
         if (results && !results.error) {
           this.setState(prevState => ({
-            searchedBooks: results
+            searchedBooks: results.filter(book => book.imageLinks)
           }))
         } else {
           this.setState(prevState => ({
@@ -27,8 +27,22 @@ class Search extends React.Component {
     this.setState(prevState => ({
       searchedBooks: []
     }))
-
   }
+
+  findShelf = (selectedBook) => {
+    let shelf = 'none';
+    if (selectedBook.shelf) {
+      shelf = selectedBook.shelf;
+    } else {
+      this.props.books.forEach(book => {
+        if (book.id === selectedBook.id) {
+          shelf = book.shelf;
+        }
+      })
+    }
+    return shelf;
+  }
+
 
   render() {
     return (
@@ -40,6 +54,7 @@ class Search extends React.Component {
           <ol className="books-grid">
           {this.state.searchedBooks.map(book => (
             <Book
+              shelf={this.findShelf(book)}
               key={book.id}
               book={book}
               changeBookStatus={this.props.changeBookStatus}

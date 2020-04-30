@@ -2,8 +2,6 @@ import React from 'react';
 import BookChanger from './BookChanger.js';
 
 const Book = (props) => {
-  let imgLink = props.book.imageLinks ? props.book.imageLinks.thumbnail : '';
-
   return (
     <div className="book">
       <div className="book-top">
@@ -12,12 +10,13 @@ const Book = (props) => {
           style={{
             width: 128,
             height: 193,
-            backgroundImage: `url("${imgLink}")`,
+            backgroundImage: `url("${props.book.imageLinks.thumbnail}")`,
           }}>
         </div>
         <BookChanger
           changeBookStatus={props.changeBookStatus}
           book={props.book}
+          shelf={props.shelf}
         />
       </div>
       <div className="book-title">{props.book.title}</div>

@@ -12,7 +12,7 @@ class SeachBar extends React.Component {
     this.setState((prevState) => ({
       value: query
     }));
-    this.props.searchBooks(query);
+    this.props.searchBooks(query.trim());
   };
 
   render() {

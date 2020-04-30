@@ -2,7 +2,13 @@ import React from 'react';
 
 class BookChanger extends React.Component {
   state = {
-    value: 'move'
+    value: ''
+  }
+
+  componentDidMount() {
+    this.setState({
+      value: this.props.shelf
+    })
   }
 
   handleChange = (event) => {

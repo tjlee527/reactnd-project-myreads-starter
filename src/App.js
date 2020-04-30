@@ -7,7 +7,7 @@ import Search from './Search.js';
 
 class BooksApp extends React.Component {
   state = {
-    books: [],
+    books: []
   }
 
   componentDidMount() {
@@ -52,6 +52,7 @@ class BooksApp extends React.Component {
           <Search
             toggleSearchPage={this.toggleSearchPage}
             changeBookStatus={this.changeBookStatus}
+            books={this.state.books}
           />
         )}>
         </Route>

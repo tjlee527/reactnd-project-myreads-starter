@@ -2,6 +2,7 @@ import React from 'react';
 import Shelf from './Shelf.js';
 
 class Bookshelf extends React.Component {
+
   render () {
     return (
       <div className="list-books">
@@ -28,7 +29,7 @@ class Bookshelf extends React.Component {
               </div>
             </div>
             <div className="open-search">
-              <button onClick={() => this.setState({ showSearchPage: true })}>Add a book</button>
+              <button onClick={() => this.props.toggleSearchPage()}>Add a book</button>
             </div>
           </div>
     )

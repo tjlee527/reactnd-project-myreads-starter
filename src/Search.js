@@ -9,9 +9,9 @@ class Search extends React.Component {
   }
 
   searchBooks = (query) => {
-    BooksAPI.search(query)
+    query.length ?
+      BooksAPI.search(query)
       .then(results => {
-        console.log(results)
         if (results && !results.error) {
           this.setState(prevState => ({
             searchedBooks: results
@@ -23,6 +23,11 @@ class Search extends React.Component {
         }
       })
       .catch(err => console.log(err))
+    :
+    this.setState(prevState => ({
+      searchedBooks: []
+    }))
+
   }
 
   render() {

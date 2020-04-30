@@ -10,7 +10,10 @@ class Bookshelf extends React.Component {
             </div>
             <div className="list-books-content">
               <div>
-                <Shelf />
+                <Shelf
+                  shelfType='currentlyReading'
+                  books= {this.props.books.filter(book => book.shelf === 'currentlyReading')}
+                />
                 <div className="bookshelf">
                   <h2 className="bookshelf-title">Want to Read</h2>
                   <div className="bookshelf-books">

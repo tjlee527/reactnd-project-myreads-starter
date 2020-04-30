@@ -55,6 +55,7 @@ class BooksApp extends React.Component {
       {this.state.showSearchPage ? (
         <Search
           toggleSearchPage={this.toggleSearchPage}
+          changeBookStatus={this.changeBookStatus}
         />
       ) : (
           <Bookshelf

@@ -29,7 +29,10 @@ class Bookshelf extends React.Component {
               </div>
             </div>
             <div className="open-search">
-              <button onClick={() => this.props.toggleSearchPage()}>Add a book</button>
+              <button
+                onClick={() => this.props.toggleSearchPage()}>
+                Add a book
+              </button>
             </div>
           </div>
     )
